@@ -1,0 +1,52 @@
+/* components/AnimatedAbstractBgChart.module.css */
+
+.bgChartContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 75vh; /* Adjust as desired for the section height */
+  z-index: 2; /* Critical for being a background element */
+  overflow: hidden;
+  pointer-events: none; /* Allow clicks/hovers to pass through */
+  opacity: 1; /* Start fully opaque; GSAP/ScrollTrigger will manage this */
+}
+
+.bgChartSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.gridLine {
+  stroke: rgba(255, 255, 255, 0.2); /* Subtle white for grid lines */
+  stroke-width: 0.5;
+  stroke-linecap: round;
+  /* Initial state for drawing animation */
+  stroke-dasharray: 2000; /* Large value, longer than any line */
+  stroke-dashoffset: 2000; /* Makes the line initially invisible */
+  opacity: 0; /* Start fully transparent */
+}
+
+.barGroup {
+  /* Initial state for animation on the group */
+  transform-origin: bottom center;
+  transform: scaleY(0); /* Start scaled down to zero height */
+  opacity: 0; /* Start fully transparent */
+}
+
+.bar {
+  /* Main body of the bar */
+  /* Fill is applied via SVG 'fill="url(#barGradient)"' */
+  rx: 3px; /* Rounded corners - using px for non-scaling radius */
+  ry: 3px;
+  /* No transform or opacity here, handled by .barGroup */
+}
+
+.barHighlight {
+  /* Highlight element for the "fake 3D" effect */
+  /* Fill is applied via SVG 'fill="url(#barGradientHighlight)"' or a solid rgba */
+  rx: 3px; /* Match main bar's roundness */
+  ry: 3px;
+  /* No transform or opacity here, handled by .barGroup */
+}

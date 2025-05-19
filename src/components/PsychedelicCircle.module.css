@@ -1,0 +1,54 @@
+/* components/PsychedelicCircle.module.css */
+
+.circleContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; /* Adjust height to control how much of the "hill" is visible */
+  /* Or use a specific pixel value if preferred, e.g., height: 300px; */
+  pointer-events: auto; /* Allow interaction with the SVG inside */
+  z-index: 2; /* Default to behind content, adjust if it's a foreground element */
+  overflow: hidden;
+  /* background-color: rgba(0,255,0,0.1); /* For debugging container bounds */
+}
+
+.psychedelicSvg {
+  display: block;
+  width: 100%;
+  height: auto; /* SVG height will be driven by its content or a larger explicit value */
+  /*
+    The SVG itself will be much taller than the container,
+    and positioned so its top part shows as the hill.
+  */
+  position: absolute;
+  top: 0; /* Align bottom of SVG with bottom of container */
+  left: 0;
+  min-height: 100%; /* Ensure SVG can be taller than container */
+  transform: translateY(-5%);
+  opacity: 0.7;
+}
+
+.interactiveCircle {
+  /* stroke: rgba(255, 255, 255, 0.1); */ /* Optional subtle stroke */
+  /* stroke-width: 1px; */
+  will-change: fill, transform; /* Performance hint */
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .psychedelicSvg {
+    display: block;
+    width: 200%;
+    height: auto; /* SVG height will be driven by its content or a larger explicit value */
+    /*
+      The SVG itself will be much taller than the container,
+      and positioned so its top part shows as the hill.
+    */
+    position: absolute;
+    bottom: -70%; /* Align bottom of SVG with bottom of container */
+    left: -50%;
+    min-height: 100%; /* Ensure SVG can be taller than container */
+    transform: translateY(-5%);
+    opacity: 0.7;
+  }
+}

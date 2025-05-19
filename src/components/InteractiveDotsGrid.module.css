@@ -1,0 +1,136 @@
+/* Global styles that were on body - move these to your global CSS file (e.g., App.css or globals.css)
+   or apply them to a wrapper div if this component is the whole page.
+   For this example, I'll assume some global setup handles these.
+*/
+/*
+body {
+  background-color: #08342a;
+  color: var(--color-light); // Define --color-light if you use it
+  font-size: 1vw;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+  min-height: 100%;
+  cursor: url("https://cdn.prod.website-files.com/6708f85ff3d3cba6aff436fb/671251b239d7aeb290a31ac5_cursor-default%402x.svg") 2 0, auto;
+}
+
+a,
+button {
+  cursor: url("https://cdn.prod.website-files.com/6708f85ff3d3cba6aff436fb/671251b212e6b71494aa67ff_cursor-pointer%402x.svg") 12 0, pointer;
+}
+*/
+
+.sectionResource {
+  /* Renamed from .section-resource for CSS Modules */
+  padding: 4em;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* or 100vh if svh isn't widely supported enough for you */
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* background-color: #08342a; */
+  color: #efeeec; /* Assuming --color-light was something like this */
+  font-size: 1vw; /* Keep if you want scaling based on viewport width */
+  overflow: hidden; /* Good to prevent scrollbars from dot animations */
+}
+
+.osmoIconLink {
+  /* Renamed */
+  color: currentColor;
+  text-decoration: none;
+  position: absolute;
+  /* Centering the icon if it's not part of the dot hole */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Ensure it's above dots if they overlap */
+}
+
+.osmoIconSvg {
+  /* Renamed */
+  width: 10em; /* Relative to parent font-size (1vw) */
+  /* Or fixed size: width: 160px; if preferred */
+}
+
+.dotsWrap {
+  /* Renamed */
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.dotsContainer {
+  /* Renamed */
+  grid-column-gap: 2em; /* Relative to parent font-size (1vw) */
+  grid-row-gap: 2em; /* Relative to parent font-size (1vw) */
+  pointer-events: none;
+  flex-flow: wrap;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-auto-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 0em;
+}
+
+.dot {
+  will-change: transform, background-color;
+  transform-origin: center;
+  background-color: #2c3878;
+  border-radius: 50%;
+  width: 1em; /* Relative to parent font-size (1vw) */
+  height: 1em; /* Relative to parent font-size (1vw) */
+  position: relative;
+  transform: translate(0px, 0px); /* Explicit 0px for GSAP */
+}
+
+.osmoCredits {
+  /* Renamed */
+  z-index: 999;
+  pointer-events: none;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 4em;
+  padding: 1em;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: transparent; /* Or match section background if needed */
+}
+
+.osmoCreditsP {
+  /* Renamed */
+  pointer-events: auto;
+  color: #efeeec80;
+  text-align: center;
+  margin: 0;
+  font-family: "PP Neue Montreal", Arial, sans-serif; /* Make sure font is loaded globally or imported */
+  font-size: 1.125rem; /* Switched to rem for better accessibility, adjust if needed */
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.osmoCreditsPA {
+  /* Renamed */
+  color: #efeeec;
+  text-decoration: none;
+}
+
+/* Consider adding the @font-face to your global CSS file if PP Neue Montreal is used elsewhere */
+/*
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('https://cdn.prod.website-files.com/6819ed8312518f61b84824df/6819ed8312518f61b84825ba_PPNeueMontreal-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+*/

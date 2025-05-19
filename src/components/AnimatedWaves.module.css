@@ -1,0 +1,33 @@
+.wavesContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30vh; /* Adjust height as needed for the "hill" */
+  overflow: hidden; /* Important to clip the waves */
+  pointer-events: none; /* So it doesn't interfere with content above */
+  z-index: 0; /* Or -1 if it needs to be behind everything */
+}
+
+.waveLayer {
+  position: absolute;
+  bottom: 0;
+  left: -5%;
+  width: 110%;
+  height: 100%;
+}
+
+/* Example for using divs as waves (simpler than SVG for basic curves) */
+.waveLayerDiv {
+  border-top-left-radius: 50% 20%; /* Creates an asymmetric curve */
+  border-top-right-radius: 50% 20%;
+  /* Alternatively, for a simpler hill: */
+  /* border-top-left-radius: 100vw; */
+  /* border-top-right-radius: 100vw; */
+  transform-origin: bottom center; /* For scaling effects */
+}
+
+/* SVG specific styling if we use SVG paths */
+/* .waveLayerSvgPath { */
+/* Fill will be set by JS/GSAP if needed or can be inline */
+/* } */

@@ -1,0 +1,34 @@
+/* components/InteractiveGrid.module.css */
+.gridSection {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background-color: #02040a;
+  opacity: 0; /* Start hidden, GSAP will reveal */
+  visibility: hidden; /* Start hidden */
+}
+
+.gridContainer {
+  display: grid;
+  width: 100%; /* Or a percentage like 90% */
+  height: 100%; /* Or a percentage like 90% */
+  padding: 1vmin;
+  box-sizing: border-box;
+  /* border: 1px solid green; For debugging bounds */
+}
+
+.gridItem {
+  background-color: #102040; /* Base color */
+  /* background-color: teal; */ /* TEMPORARY DEBUG: Make items very visible IF they render with this class */
+  border-radius: 2px;
+  will-change: transform, opacity, background-color;
+
+  /* --- CRITICAL INITIAL STATE FOR GSAP 'to' ANIMATION --- */
+  opacity: 0;
+  transform: scale(0.5) translateY(20px); /* Start scaled down and slightly offset */
+  /* transform-origin: center center; GSAP sets this if needed but good default */
+}
