@@ -14,6 +14,7 @@ import { useEffect, useRef, useState } from "react"; // useEffect might not be n
 import CheckerboardGrid from "@/components/CheckerboardGrid";
 import CloseButton from "@/components/CloseButton";
 import TeamCard from "@/components/TeamCard";
+import DataCard from "@/components/DataCard";
 import AppLoader from "@/components/AppLoader";
 
 import data from "@/utils/teamData";
@@ -483,58 +484,28 @@ export default function Home() {
         </section>
         <section className="investors">
           <div className="data-cards">
-            <div className="data-card">
-              <div className="data-number">
-                <p>Initial Market Cap</p>
-                <Copy>
-                  <h2>$1.3T</h2>
-                </Copy>
-              </div>
-              <div className="description-txt">
-                <Copy>
-                  <p>
-                    Africa’s stock markets collectively represent a capital pool
+            <DataCard
+              title={"Initial Market Cap"}
+              description="Africa’s stock markets collectively represent a capital pool
                     of over $1.3 trillion, reflecting the continent’s growing
-                    economic influence and investment potential.
-                  </p>
-                </Copy>
-              </div>
-            </div>
-            <div className="data-card">
-              <div className="data-numbers">
-                <p>Market size</p>
-                <Copy delay={0.6}>
-                  <h2>1.56b</h2>
-                </Copy>
-              </div>
-              <div className="description-txt">
-                <Copy delay={0.3}>
-                  <p>
-                    Africa’s total addressable market for digital
+                    economic influence and investment potential."
+              data={"$1.3T"}
+            />
+            <DataCard
+              title={"Market Size"}
+              description="Africa’s total addressable market for digital
                     services-including commerce, payments, and
                     communication-exceeds $2 trillion, indicating the
-                    continent’s vast and rapidly growing digital economy.
-                  </p>
-                </Copy>
-              </div>
-            </div>
-            <div className="data-card">
-              <div className="data-numbers">
-                <p>Accessible Market %</p>
-                <Copy delay={0.8}>
-                  <h2>38%</h2>
-                </Copy>
-              </div>
-              <div className="description-txt">
-                <Copy delay={0.5}>
-                  <p>
-                    With digital adoption accelerating, roughly 38% of Africa’s
+                    continent’s vast and rapidly growing digital economy."
+              data={"1.56b"}
+            />
+            <DataCard
+              title={"Accessible Market %"}
+              description="With digital adoption accelerating, roughly 38% of Africa’s
                     market is already accessible to innovative solutions, and
-                    this share is expanding every year.
-                  </p>
-                </Copy>
-              </div>
-            </div>
+                    this share is expanding every year."
+              data={"38%"}
+            />
           </div>
           <div className="light-container">
             <svg
@@ -616,6 +587,20 @@ export default function Home() {
                 </clipPath>
               </defs>
             </svg>
+          </div>
+          <div className="investor-note">
+            <h2 className="investor-title">Investors</h2>
+            <Copy>
+              <p>
+                We are currently at the pre-seed stage and actively seeking
+                visionary investors who share our mission and ambition. By
+                partnering with us now, you have the opportunity to help
+                accelerate our growth and shape the future of digital innovation
+                in Africa. If you’re interested in joining us on this
+                transformative journey, we invite you to review our investment
+                proposal and connect with our team.
+              </p>
+            </Copy>
           </div>
         </section>
         <section className="contact">
