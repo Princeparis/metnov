@@ -18,6 +18,7 @@ import DataCard from "@/components/DataCard";
 import AppLoader from "@/components/AppLoader";
 
 import data from "@/utils/teamData";
+import BtnCta from "@/components/BtnCta";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -29,6 +30,11 @@ export default function Home() {
   const menuIconTl = useRef(null);
   const menuAnimTl = useRef(null);
   const brandContainerRef = useRef(null);
+  const loaderContRef = useRef(null);
+  const progressContRef = useRef(null);
+  const counterRef = useRef(null);
+  const progressRef = useRef(null);
+  const loaderTl = useRef(null);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -39,6 +45,167 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  useGSAP(
+    () => {
+      if (
+        !loaderContRef.current ||
+        !progressContRef.current ||
+        !progressRef.current ||
+        !counterRef.current
+      ) {
+        console.error;
+        return;
+      }
+      if (isLoading) {
+        loaderTl.current = gsap
+          .timeline()
+          .fromTo(
+            progressRef.current,
+            {
+              width: "0%",
+              opacity: 0,
+            },
+            {
+              width: "20%",
+              opacity: 1,
+              duration: 0.4,
+              ease: "expo4.out",
+            }
+          )
+          .set(
+            counterRef.current,
+            {
+              textContent: "20%",
+              duration: 0.3,
+              ease: "expo4.out",
+            },
+            "-=0.4"
+          )
+          .to(".logo-path", {
+            y: 0,
+            opacity: 1,
+            duration: 0.3,
+            stagger: 0.1,
+            ease: "power4.in",
+          })
+          .fromTo(
+            progressRef.current,
+            {
+              width: "20%",
+            },
+            {
+              width: "40%",
+              duration: 0.4,
+              ease: "expo4.out",
+            },
+            "-=0.5"
+          )
+          .set(
+            counterRef.current,
+            {
+              textContent: "40%",
+              duration: 0.3,
+              ease: "expo4.out",
+            },
+            "-=0.4"
+          )
+          .fromTo(
+            progressRef.current,
+            {
+              width: "40%",
+            },
+            {
+              width: "60%",
+              duration: 0.4,
+              ease: "expo4.out",
+            }
+          )
+          .set(
+            counterRef.current,
+            {
+              textContent: "60%",
+              duration: 0.3,
+              ease: "expo4.out",
+            },
+            "-=0.4"
+          )
+          .fromTo(
+            progressRef.current,
+            {
+              width: "60%",
+            },
+            {
+              width: "80%",
+              duration: 0.4,
+              ease: "expo4.out",
+            }
+          )
+          .set(
+            counterRef.current,
+            {
+              textContent: "80%",
+              duration: 0.3,
+              ease: "expo4.out",
+            },
+            "-=0.4"
+          )
+          .fromTo(
+            progressRef.current,
+            {
+              width: "80%",
+            },
+            {
+              width: "100%",
+              duration: 0.4,
+              ease: "expo4.out",
+            }
+          )
+          .set(
+            counterRef.current,
+            {
+              textContent: "100%",
+              duration: 0.4,
+              ease: "expo4.out",
+            },
+            "-=0.4"
+          )
+          .to(counterRef.current, {
+            x: "60px",
+            opacity: 0,
+            duration: 0.3,
+            ease: "expo4.out",
+          })
+          .to(progressContRef.current, {
+            height: "100svh",
+            duration: 0.5,
+            ease: "expo4.out",
+          })
+          .to(
+            ".logo-path",
+            {
+              fill: "var(--off-white)",
+              duration: 0.3,
+              stagger: 0.05,
+            },
+            "-=0.4"
+          )
+          .to(loaderContRef.current, {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            duration: 0.5,
+            delay: 0.3,
+            ease: "expo4.inOut",
+            onComplete: () => {
+              setIsLoading(false);
+            },
+          });
+      } else if (!isLoading) {
+        return;
+      }
+    },
+    {
+      dependencies: [isLoading],
+    }
+  );
   const { contextSafe } = useGSAP(
     () => {
       if (menuIconContainerRef.current) {
@@ -219,6 +386,63 @@ export default function Home() {
   // The rest of your component (return statement with JSX) follows...
   return (
     <>
+      <div className="loader" ref={loaderContRef}>
+        <div className="progress-cont" ref={progressContRef}>
+          <div className="progress" ref={progressRef}>
+            <p className="counter" ref={counterRef}>
+              0%
+            </p>
+          </div>
+        </div>
+        <div className="logo">
+          <svg
+            width="115"
+            height="26"
+            viewBox="0 0 115 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g>
+              <path
+                d="M13.5908 21.2715H14.4912L19.6455 0H26.2256V19.3955H28.1309V22.1846H21.1426V19.3955H22.9062V4.37305L23.4961 0.910156H22.5957L17.3193 22.1816H10.7383L5.45898 0.913086H4.55859L5.14941 4.37598V19.3955H6.98828V22.1846H5.14941V22.1875H1.8291V22.1846H0V19.3955H1.8291V0H8.43945L13.5908 21.2715Z"
+                fill="black"
+                className="logo-path logo-m"
+              />
+              <path
+                d="M37.2775 6.16893C41.9964 6.16893 45.0062 9.03268 45.0062 13.8773V14.9781H32.8689C32.994 17.8419 34.4826 19.9194 37.4326 19.9194C39.9145 19.9194 41.4058 18.6916 41.9011 16.6776H45.0661C44.4755 19.6986 42.2413 22.4989 37.4925 22.4989C32.4008 22.4989 29.7012 18.8489 29.7012 14.1587C29.7012 9.09338 32.7736 6.16617 37.2748 6.16617L37.2775 6.16893ZM41.8712 12.8703C41.6861 10.1942 39.9145 8.68506 37.3074 8.68506C34.8854 8.68506 33.0866 10.1942 32.8689 12.8703H41.8712Z"
+                fill="black"
+                className="logo-path logo-e"
+              />
+              <path
+                d="M58.7873 22.1844H52.3322C50.8109 22.1844 50.0653 21.4285 50.0653 19.8862V9.28098H46.5901V6.48069H50.0653V1.72984H53.2629V6.48069H58.1668V9.28098H53.2629V19.3814H58.7873V22.1817V22.1844Z"
+                fill="black"
+                className="logo-path logo-t"
+              />
+              <path
+                d="M71.5449 6.16895C75.1453 6.16895 77.4746 8.37051 77.4746 12.9033V19.3955H79.3037V22.1846H77.4746V22.1875H74.2773V13.3447C74.2773 10.197 73.1288 8.97173 70.5518 8.97168C67.4467 8.97168 65.3047 11.2706 65.3047 15.5166V22.1875H62.1074V9.27246H60.2754V6.4834H65.3047V8.96875L64.7471 11.0469H65.6152C66.2357 8.21347 68.1922 6.16895 71.5449 6.16895Z"
+                fill="black"
+                className="logo-path logo-n"
+              />
+              <path
+                d="M88.9891 6.16893C93.893 6.16893 97.3083 9.50446 97.3083 14.3188C97.3083 19.1331 93.893 22.5017 88.9891 22.5017C84.0852 22.5017 80.6399 19.1662 80.6399 14.3188C80.6399 9.47135 84.0552 6.16893 88.9891 6.16893ZM88.9891 19.6986C92.2493 19.6986 94.0808 17.3701 94.0808 14.3188C94.0808 11.2674 92.2493 8.96923 88.9891 8.96923C85.7289 8.96923 83.8375 11.2978 83.8375 14.3188C83.8375 17.3398 85.6989 19.6986 88.9891 19.6986Z"
+                fill="black"
+                className="logo-path path-o"
+              />
+              <path
+                d="M115 6.48345L110.281 22.1872H103.608L98.8269 6.48345H102.054L106.523 21.3043H107.391L111.83 6.48345H114.995H115Z"
+                fill="black"
+                className="logo-path logo-v"
+              />
+
+              <path
+                d="M88.9592 23.5059C87.6012 23.5059 86.499 24.6233 86.499 26H91.4166C91.4166 24.6233 90.3144 23.5059 88.9564 23.5059H88.9592Z"
+                fill="black"
+                className="logo-path logo-accent"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
       <div className="menu" ref={menuContainerRef}>
         <div className="left-wrapper">
           <div className="upper-links">
@@ -616,23 +840,7 @@ export default function Home() {
                   importance to discuss with us.
                 </p>
               </Copy>
-              <button>
-                Contact us
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 204 205"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M2 2H202M202 2C202 2 202 232.038 202 202.356M202 2L2 202.356"
-                    stroke="#FFFFFF"
-                    strokeWidth="30"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </button>
+              <BtnCta text={"Download Deck"} link={"#"} bg={"var(--ap11)"} />
             </div>
           </div>
         </section>

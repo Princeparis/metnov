@@ -69,10 +69,12 @@
   --black: #141413;
   --white: #fff;
   --maroon: linear-gradient(235deg, var(--ap3), var(--ap11));
+  --lime: linear-gradient(235deg, var(--as3), var(--as11));
 }
 
 body {
   background-color: var(--white);
+  scroll-behavior: smooth;
 }
 
 a {
@@ -80,6 +82,67 @@ a {
   color: inherit;
 }
 
+.loader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh;
+  background: var(--lime);
+  z-index: 1000;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.progress-cont {
+  width: 100vw;
+  height: 100px;
+  transform-origin: center;
+}
+
+.progress {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  padding: 12px;
+  width: 0%;
+  opacity: 0;
+  background-color: var(--b15);
+  will-change: width;
+  transform-origin: center right;
+  overflow: hidden;
+}
+
+.counter {
+  color: var(--off-white);
+  font-family: var(--font-machina);
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.loader .logo {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  height: 40px;
+  overflow: hidden;
+}
+
+.loader .logo svg {
+  height: 100%;
+  width: auto;
+}
+
+.logo-path {
+  transform: translateY(100%);
+  opacity: 0;
+}
 main {
   display: flex;
   position: relative;
@@ -377,7 +440,7 @@ nav {
 }
 
 .about-text p {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-family: var(--font-montreal), sans-serif;
   font-weight: 400;
   line-height: 1.5;
@@ -883,18 +946,45 @@ nav {
   width: fit-content;
 }
 
-.dt-stack button {
+.btn-cta {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 320px;
   background-color: #000;
   color: #fff;
+  border: none;
+  padding: 24px 32px;
+  overflow: hidden;
+}
+
+.btn-cta p {
+  position: relative;
+  z-index: 3;
+  flex: 1;
   font-family: var(--font-montreal), sans-serif;
   font-size: 1.2em;
   font-weight: 500;
   text-transform: capitalize;
-  padding: 24px 32px;
+  color: var(--off-white);
+}
+
+.btn-cta svg {
+  position: relative;
+  z-index: 3;
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+.btn-cta-bg {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
 }
 
 footer {
@@ -1005,6 +1095,42 @@ footer .logo {
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
+  .loader {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100svh;
+    background-color: var(--ap11);
+    z-index: 1000;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .progress-cont {
+    height: 60px;
+  }
+
+  .progress {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    padding: 12px;
+    width: 0%;
+    background-color: var(--ap15);
+    will-change: width;
+    transform-origin: center right;
+    overflow: hidden;
+  }
+
+  .counter {
+    font-size: 1.2em;
+  }
+
   nav {
     padding: 12px 16px;
   }
