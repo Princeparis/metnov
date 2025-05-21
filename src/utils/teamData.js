@@ -26,7 +26,7 @@ const data = [
     name: "Nnamdi Dollah",
     description:
       "Nnamdi is a strategic business analyst with a passion for building innovative solutions that solve real-world problems.",
-    image: "nnamdi.jpg",
+    image: "nnamdi.JPG",
     link: "#",
     alt: "Nnamdi Dollah Image",
     anime: "nnamdi-anime.jpg",
