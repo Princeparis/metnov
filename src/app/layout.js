@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { ReactLenis } from "lenis/react";
 import localFont from "next/font/local";
+
 import "./globals.css";
 
 const machinaFont = localFont({

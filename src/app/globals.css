@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --ap1: #fef4f2;
   --ap2: #fde9e4;
@@ -310,6 +314,7 @@ nav {
   height: 100%;
   width: 100%;
   z-index: 2;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 }
 
 .r-img-cont img {
@@ -864,10 +869,12 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 12px;
+  padding: 6px;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .investor-note {
@@ -1464,6 +1471,11 @@ footer .logo {
     padding: 8px;
   }
 
+  .icon-cont svg {
+    width: 20px;
+    height: 20px;
+  }
+
   .description-txt p {
     font-size: 0.7em;
     line-height: 1.5;
@@ -1556,6 +1568,19 @@ footer .logo {
     flex-direction: column;
     gap: 2em;
     width: fit-content;
+  }
+
+  .btn-cta {
+    border-radius: 4px;
+  }
+
+  .btn-cta p {
+    font-size: 1em;
+  }
+
+  .btn-cta svg {
+    transform: translateY(0);
+    opacity: 1;
   }
 
   footer {

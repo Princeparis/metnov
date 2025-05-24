@@ -5,7 +5,7 @@ const data = [
     description:
       "Adewale is a tech entrepreneur, data scientist, and machine learning engineer passionate about harnessing the power of AI to solve complex problems and create innovative solutions.",
     image: "wale4.jpg",
-    link: "#",
+    link: "https://www.linkedin.com/in/adewale-adelanwa-a2107b147/",
     alt: "Adewale Adelanwa Image",
     anime: "wale-anime.jpg",
     role: "CEO & Co-Founder",
@@ -16,7 +16,7 @@ const data = [
     description:
       "Yusuff is a software engineer with a passion for building innovative solutions that solve real-world problems. He has experience in web development, mobile app development.",
     image: "ridwan.jpg",
-    link: "#",
+    link: "https://www.linkedin.com/in/kingakanni/",
     alt: "Yusuff Adeniran Image",
     anime: "niran-anime.jpg",
     role: "CTO & Co-Founder",

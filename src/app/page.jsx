@@ -4,18 +4,16 @@ import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import PsychedelicCircle from "@/components/PsychedelicCircle";
+import Intercom from "@intercom/messenger-js-sdk";
 import AnimatedLink from "@/components/AnimatedLink";
 import ToggleNav from "@/components/ToggleNav";
 import MenuLink from "@/components/MenuLink";
 import HoverCard from "@/components/HoverCard";
-import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react"; // useEffect might not be needed if all GSAP is in useGSAP
 import CheckerboardGrid from "@/components/CheckerboardGrid";
 import CloseButton from "@/components/CloseButton";
 import TeamCard from "@/components/TeamCard";
 import DataCard from "@/components/DataCard";
-import AppLoader from "@/components/AppLoader";
 
 import data from "@/utils/teamData";
 import BtnCta from "@/components/BtnCta";
@@ -278,12 +276,12 @@ export default function Home() {
         menuAnimTl.current = gsap
           .timeline({ paused: true })
           .fromTo(
-            menuContainerRef.current, // Target the menu div directly via its ref
-            { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" }, // Start hidden (collapsed at top)
+            menuContainerRef.current,
+            { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" },
             {
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", // Animate to fully visible
-              duration: 0.5, // Slightly faster for snappier feel
-              ease: "expo.inOut", // A more pronounced ease
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              duration: 0.5,
+              ease: "expo.inOut",
             }
           )
           .fromTo(
@@ -314,18 +312,12 @@ export default function Home() {
               ease: "power4.out",
             }
           )
-          .fromTo(
-            ".r-img-cont",
-            {
-              clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-            },
-            {
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-              duration: 0.3,
-              delay: -0.6,
-              ease: "expo.inOut",
-            }
-          );
+          .to(".r-img-cont", {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 0.3,
+            delay: -0.6,
+            ease: "expo.inOut",
+          });
       } else {
         console.warn(
           "GSAP: menuContainerRef.current is not available for menuAnimTl setup."
@@ -382,6 +374,10 @@ export default function Home() {
     console.log("Loader finished!");
     setIsLoading(false);
   };
+
+  Intercom({
+    app_id: "nmh84ne2",
+  });
 
   // The rest of your component (return statement with JSX) follows...
   return (
@@ -599,7 +595,7 @@ export default function Home() {
             </h1>
           </div>
         </section>
-        <section className="about">
+        <section className="about" id="about">
           <div className="about-text">
             <h2>About</h2>
             <Copy>
@@ -668,7 +664,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="projects">
+        <section className="projects" id="projects">
           <div className="stripe">
             <div className="film film-1">
               <div className="img">
@@ -689,7 +685,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="nerds">
+        <section className="nerds" id="nerds">
           <div className="nerds-content">
             <h2>Nerds</h2>
             <Copy>
@@ -702,11 +698,13 @@ export default function Home() {
           </div>
           <div className="profiles">
             {data.map((person) => {
-              return <TeamCard data={person} key={person.id} />;
+              return (
+                <TeamCard data={person} key={person.id} target={"_blank"} />
+              );
             })}
           </div>
         </section>
-        <section className="investors">
+        <section className="investors" id="investors">
           <div className="data-cards">
             <DataCard
               title={"Initial Market Cap"}
@@ -827,10 +825,10 @@ export default function Home() {
             </Copy>
           </div>
         </section>
-        <section className="contact">
+        <section className="contact" id="contact">
           <div className="details">
             <Copy>
-              <h2>You want to talk to us?</h2>
+              <h2>You want to read more about us ?</h2>
             </Copy>
             <div className="dt-stack">
               <Copy delay={0.7}>

@@ -83,11 +83,11 @@ export default function ToggleNav() {
         </svg>
       </button>
       <div className="nav-links">
-        <AnimatedLink href="#" text="About" />
-        <AnimatedLink href="#" text="Investors" />
-        <AnimatedLink href="#" text="Projects" />
-        <AnimatedLink href="#" text="Talk to us" />
-        <AnimatedLink href="#" text="Team" />
+        <AnimatedLink href="#about" text="About" />
+        <AnimatedLink href="#investors" text="Investors" />
+        <AnimatedLink href="#projects" text="Projects" />
+        <AnimatedLink href="#contact" text="Talk to us" />
+        <AnimatedLink href="#nerds" text="Team" />
       </div>
     </div>
   );

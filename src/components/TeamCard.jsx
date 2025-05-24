@@ -9,7 +9,7 @@ import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, SplitText);
 
-export default function TeamCard({ data }) {
+export default function TeamCard({ data, target }) {
   const containerRef = useRef();
   const gradRef = useRef();
   const hoverAnime = useRef(null);
@@ -166,7 +166,7 @@ export default function TeamCard({ data }) {
           <p ref={pRef}>{description}</p>
         </div>
         <div className="p-interact">
-          <a href={link} className="p-link">
+          <a href={link} className="p-link" target={link === "#" ? "" : target}>
             <svg
               width="54"
               height="54"
