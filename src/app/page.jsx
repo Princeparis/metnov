@@ -600,22 +600,18 @@ export default function Home() {
             <h2>About</h2>
             <Copy>
               <p>
-                We are an innovative team of seasons technical idealist who are
-                interested in changing the world around us in a positive way
-                leave a mark on generation to come after us.
+                We are a team of experienced innovators and technical idealist
+                committed to redefining technological solutions. We design and
+                build forward-thinking digital solutions that drive economic
+                growth, expand access to essential services, and empower
+                individuals globally.
               </p>
             </Copy>
           </div>
           <div className="brand-container" ref={brandContainerRef}>
             <HoverCard
               title={"Mission"}
-              content="Our mission is to harness cutting-edge AI and relentless
-                  curiosity to deliver intelligent solutions that drive progress
-                  and improve lives. We cultivate a culture of bold innovation,
-                  open collaboration, and unwavering ethical
-                  responsibility — empowering our teams to dream bigger and
-                  inspire others through technical excellence and transformative
-                  impact."
+              content="Our mission is to impact our world by integrating advanced AI into innovative technology solutions. We are committed to reimagining what technology can do, innovate boldly, create intelligent tools that drive progress, solve real-world challenges, and improve lives for people everywhere."
               img={"mission.png"}
               alt={
                 "Avatar of a boy pressing phone, as he receives money from his friend"
@@ -624,14 +620,7 @@ export default function Home() {
             />
             <HoverCard
               title={"Vision"}
-              content="Thought for a couple of seconds Our vision is to pioneer
-                  transformative AI technologies that empower humanity and
-                  redefine what’s possible. We strive to inspire a future where
-                  intelligent solutions tackle society’s greatest challenges and
-                  generate lasting positive impact. By leading globally in AI
-                  innovation, we aim to build a legacy that shapes generations
-                  to come—unlocking new horizons and uplifting communities
-                  around the world."
+              content="Our vision is to lead the way in creating AI technologies that make life better for people everywhere. We aim to develop intelligent solutions that solve real problems, open up new opportunities, and create lasting benefits for communities around the world."
               img={"vision.png"}
               alt={"Avatar of a boy holding a binocular"}
               classes={"vision"}
@@ -674,11 +663,10 @@ export default function Home() {
                 <h2>Pivota</h2>
                 <Copy>
                   <p>
-                    This is our 1st tech project, a mega application built to
-                    unify micro-tasks done on separate apps, so people can get
-                    it all done on one app. Tasks like e-commerce, messaging,
-                    calling, and many more, all unified and made easy by an AI
-                    integration.
+                    Pivota is a next-generation social commerce platform
+                    designed to connect communities and unlock new opportunities
+                    through smart technology. (We trying to be discreet about
+                    it, make them no go copy our idea😋)
                   </p>
                 </Copy>
               </div>
@@ -814,13 +802,12 @@ export default function Home() {
             <h2 className="investor-title">Investors</h2>
             <Copy>
               <p>
-                We are currently at the pre-seed stage and actively seeking
-                visionary investors who share our mission and ambition. By
-                partnering with us now, you have the opportunity to help
-                accelerate our growth and shape the future of digital innovation
-                in Africa. If you’re interested in joining us on this
-                transformative journey, we invite you to review our investment
-                proposal and connect with our team.
+                We are currently at the pre-seed stage and welcome investors who
+                share our vision and ambition. By partnering with us, you can
+                play a key role in accelerating our growth and shaping the
+                future of digital innovation in Africa. If our journey resonates
+                with you, we invite you to review our investment proposal and
+                connect with our team.
               </p>
             </Copy>
           </div>
@@ -833,9 +820,11 @@ export default function Home() {
             <div className="dt-stack">
               <Copy delay={0.7}>
                 <p>
-                  There are a few ways to talk to us as we are opened to talking
-                  with prospective users and investors who have subject of
-                  importance to discuss with us.
+                  If you’re an investor looking for your next breakout
+                  opportunity, our story—and the numbers behind it—are just a
+                  click away. Download the pitch deck below, explore the vision,
+                  and let’s start a conversation about where we can go
+                  together..
                 </p>
               </Copy>
               <BtnCta text={"Download Deck"} link={"#"} bg={"var(--ap11)"} />
