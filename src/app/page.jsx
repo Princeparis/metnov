@@ -665,8 +665,7 @@ export default function Home() {
                   <p>
                     Pivota is a next-generation social commerce platform
                     designed to connect communities and unlock new opportunities
-                    through smart technology. (We trying to be discreet about
-                    it, make them no go copy our idea😋)
+                    through smart technology.
                   </p>
                 </Copy>
               </div>
