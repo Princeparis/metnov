@@ -856,9 +856,15 @@ export default function Home() {
             <div className="link-col">
               <h4>Socials</h4>
               <div className="link-menu">
-                <AnimatedLink href="#" text="Facebook" />
+                <AnimatedLink
+                  href="https://www.facebook.com/share/15mHvRNdcV/?mibextid=wwXIfr "
+                  text="Facebook"
+                />
                 <AnimatedLink href="#" text="Instagram" />
-                <AnimatedLink href="#" text="LinkedIn" />
+                <AnimatedLink
+                  href="https://www.linkedin.com/company/metnov "
+                  text="LinkedIn"
+                />
                 <AnimatedLink href="#" text="Tiktok" />
                 <AnimatedLink href="#" text="X" />
               </div>
