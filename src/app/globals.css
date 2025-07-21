@@ -551,7 +551,8 @@ nav {
 
 .projects {
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  aspect-ratio: 3/2;
   overflow: hidden;
   margin-top: 120px;
 }
@@ -564,7 +565,7 @@ nav {
 
 .film {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   position: relative;
 }
 

@@ -3,6 +3,7 @@ import { ReactLenis } from "lenis/react";
 import localFont from "next/font/local";
 
 import "./globals.css";
+import GlobalMenu from "@/components/GlobalMenu";
 
 const machinaFont = localFont({
   src: [
@@ -97,8 +98,13 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${machinaFont.variable} ${montrealFont.variable}`}
     >
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-icon.svg" sizes="180x180" />
+      </head>
       <ReactLenis root>
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
+          <GlobalMenu />
           {children}
         </body>
       </ReactLenis>
