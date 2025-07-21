@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^16.1.0",
     "@gsap/react": "^2.1.2",
     "@intercom/messenger-js-sdk": "^0.0.14",
     "@react-three/drei": "^10.0.7",
