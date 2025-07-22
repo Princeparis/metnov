@@ -1250,6 +1250,11 @@ footer .logo {
     overflow: hidden;
   }
 
+  .brand img {
+    height: 480px;
+    bottom: 0;
+  }
+
   .brochure h4 {
     font-size: 1.4em;
     line-height: 1.4;
@@ -1504,7 +1509,7 @@ footer .logo {
     height: 100svh;
     width: fit-content;
     transform-origin: center center;
-    transform: scale(2);
+    transform: scale(3);
   }
 
   .investor-note {
