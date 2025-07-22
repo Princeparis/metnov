@@ -307,7 +307,7 @@ export default function Home() {
             <HoverCard
               title={"Mission"}
               content="Our mission is to impact our world by integrating advanced AI into innovative technology solutions. We are committed to reimagining what technology can do, innovate boldly, create intelligent tools that drive progress, solve real-world challenges, and improve lives for people everywhere."
-              img={"mission.png"}
+              img={"mission.webp"}
               alt={
                 "Avatar of a boy pressing phone, as he receives money from his friend"
               }
@@ -316,7 +316,7 @@ export default function Home() {
             <HoverCard
               title={"Vision"}
               content="Our vision is to lead the way in creating AI technologies that make life better for people everywhere. We aim to develop intelligent solutions that solve real problems, open up new opportunities, and create lasting benefits for communities around the world."
-              img={"vision.png"}
+              img={"vision.webp"}
               alt={"Avatar of a boy holding a binocular"}
               classes={"vision"}
             />
