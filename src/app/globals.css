@@ -1711,7 +1711,7 @@ footer .logo {
 .journal-cont {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 40px 20px;
   width: 100vw;
   padding: 40px 20px 16px 20px;
 }
@@ -1724,7 +1724,7 @@ footer .logo {
   align-items: flex-start;
   width: 100%;
   aspect-ratio: 4/5;
-  background-color: var(--ap10);
+  background-color: var(--b4);
   border-radius: 16px;
   overflow: hidden;
 }
@@ -1919,4 +1919,16 @@ footer .logo {
   opacity: 0.7;
   color: var(--off-white);
   text-transform: uppercase;
+}
+
+.post-body {
+  width: 100vw;
+  padding: 80px 120px;
+  column-count: 2;
+  column-gap: 64px;
+  font-family: var(--font-montreal), sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--black);
 }

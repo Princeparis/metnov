@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Copy from "./Copy";
 import AnimatedLink from "./AnimatedLink";

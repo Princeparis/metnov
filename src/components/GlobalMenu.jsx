@@ -7,6 +7,7 @@ import AnimatedLink from "@/components/AnimatedLink";
 import CloseButton from "@/components/CloseButton";
 import CheckerboardGrid from "@/components/CheckerboardGrid";
 import ToggleNav from "@/components/ToggleNav";
+import { usePathname } from "next/navigation";
 
 export default function GlobalMenu() {
   const navRef = useRef(null);
@@ -14,6 +15,7 @@ export default function GlobalMenu() {
   const menuContainerRef = useRef(null);
   const menuIconTl = useRef(null);
   const menuAnimTl = useRef(null);
+  const pathname = usePathname();
 
   const { contextSafe } = useGSAP(
     () => {
@@ -308,7 +310,7 @@ export default function GlobalMenu() {
               </g>
             </svg>
           </h2>
-          <ToggleNav />
+          {pathname === "/" && <ToggleNav />}
         </div>
         <div
           className="menu-icon"
