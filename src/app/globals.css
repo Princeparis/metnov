@@ -1255,6 +1255,10 @@ footer .logo {
     bottom: 0;
   }
 
+  .brand-content {
+    padding: 16px;
+  }
+
   .brochure h4 {
     font-size: 1.4em;
     line-height: 1.4;
