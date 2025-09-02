@@ -429,7 +429,7 @@ nav {
 .about-text {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 0 20px;
   width: 100%;
   gap: 8em;
